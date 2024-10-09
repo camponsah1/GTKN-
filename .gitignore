@@ -1,0 +1,5 @@
+plotGTKN/
+
+__pycache__/
+*.pyc
+*.pyo

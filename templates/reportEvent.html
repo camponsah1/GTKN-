@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>GTKN!</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+  <body style="background-color:black;text-align:center">
+    <nav>
+      <ul class="navBar">
+        <input type="checkbox" id="check">
+        <span class="menu">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('reportEvent') }}">Report Event</a></li>
+          <li><a href="{{ url_for('support') }}">Support</a></li>
+          <label for="check" class="closeMenu"><i class="fas fa-times"></i></label>
+        </span>
+        <label for="check" class="openMenu"><i class="fas fa-bars"></i></label>
+      </ul>
+    </nav>
+          <div class="background revealable active">
+          <h1 id="titleLettering" class="active">Report an Event!</h1>
+          <p class="background revealable active" id="summaryReportEvent">Have some news you want to share with us? <br> Submit a report below and your finding
+            may be featured on the site!</p>
+          <!---About Section--->
+         <!--- <h2 class="lettering">About</h2> --->
+          
+          </div>
+          
+          <div>
+          <form class="revealable active mapDataForm" id="mapDataForm">
+            <div class="mapContainer">
+              <label for="typeOfEvent">Event Type:</label><br>
+              <select id="typeOfEvent" name="typeOfEvent">
+                <option value="blank"></option>
+                <option value="naturalDisaster">Natural Disaster</option>
+                <option value="political">Political or Stock related</option>
+                <option value="popCulture">Pop Culture</option>
+                <option value="War">War or Violent Conflict</option>
+                <option value="other">Other</option>
+              </select><br><br>
+            </div>
+
+            <div class="mapContainer">
+              <label for="evn">Name Event:</label><br>
+              <input type="text" id="evn" name="evn"><br><br>
+            </div>
+            
+            <div class="mapContainer">
+              <label for="des">Describe Event:</label><br>
+              <textarea type="text" id="des" name="des" style="flex: 1; min-width: 18em;"></textarea><br><br>
+            </div>
+            
+            <div class="mapContainer">
+              <label for="lat">Latitude (Numbers, Decimal, & (-) sign only):</label><br>
+            <input type="text" id="lat" name="lat"><br><br>
+            </div>
+            
+            <div class="mapContainer">
+              <label for="lon">Longitude (Numbers, Decimal, & (-) sign only):</label><br>
+              <input type="text" id="lon" name="lon"><br><br>
+            </div>
+            
+            <div class="mapContainer">
+              <label for="resource">Provide a reliable resource:</label><br>
+            <input type="text" id="resource" name="resource"><br><br>
+            </div>
+            
+            <button id="reportButton" type="button" onclick="submitData()">Submit</button>
+          </form>
+          </div>
+
+          <script src="{{ url_for('static', filename='transition.js') }}"></script>
+
+          <script>
+            function submitData() {
+              const data ={
+                evn: document.getElementById("evn").value,
+                typeOfEvent: document.getElementById("typeOfEvent").value,
+                des: document.getElementById("des").value,
+                lat: document.getElementById("lat").value,
+                lon: document.getElementById("lon").value,
+                resource: document.getElementById("resource").value
+              };
+                
+                
+                // Sends the data to the server
+                fetch('/submit-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
+}
+            
+            </script>
+
+
+      </main>
+  </body>
+
+
+</html>
