@@ -243,3 +243,29 @@ input [type="text"], select, textarea{
   order: 1; 
   min-width: 30%; /
 }
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.legend-text {
+  font-family: geistSans;
+  font-size: 14px;
+  color: white;
+}

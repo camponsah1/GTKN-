@@ -22,7 +22,7 @@ def load_data():
 def save_data(data):
     """Save data points to a JSON file."""
     with open(DATA_FILE, 'w') as file:
-        json.dump(data, file)
+        json.dump(data, file, indent= 4)
 
 
 data_points = load_data()
@@ -42,12 +42,14 @@ def support():
 def index():
     #Plotly plot
     eventTypeColors = {
-        'naturalDisater': 'green',
+        'naturalDisaster': 'green',
         'political': 'blue',
         'popCulture' : 'pink',
         'War' : 'red',
         'other' : 'yellow'
     }
+    markerColors = [eventTypeColors[point['typeOfEvent']] for point in data_points]
+
     fig = go.Figure(go.Scattermapbox(
 
         text=[f"{point['evn']} <br>\nDescription: {point['des']}<br>" for point in data_points],
@@ -57,19 +59,20 @@ def index():
         hoverinfo='text',
         marker=go.scattermapbox.Marker(
             size=9,
-            color=[eventTypeColors [point['typeOfEvent']] for point in data_points],
-            )
-    ))
+            color= markerColors
+            ),
+     ))
 
+    
 
     fig.update_layout(
         mapbox=dict(
-            style="carto-darkmatter",
+            style="carto-darkmatter", #carto-positron carto-darkmatter
             center={"lat": data_points[0]['lat'] if data_points else 0, "lon": data_points[0]['lon'] if data_points else 0},
             zoom=1,
         ),
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
-        font=dict(color='white')
+        font=dict(color='white'),
     )
 
 

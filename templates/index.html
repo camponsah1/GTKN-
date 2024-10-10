@@ -28,15 +28,42 @@
           <h3 id="slogan" class="background revealable active">The world isn't so <span id="outline" class="background revealable active">black</span> & white...</h3>
           <!---About Section--->
          <!--- <h2 class="lettering">About</h2> --->
-          <p id="summary" class="background revealable active"> <em>Get the Know Now!</em>  is an interactive website that displays major global events exactly where they're taking place. Whether the event falls under the catergory of pop cultutre, politics, or a natural disater,
+          <p id="summary" class="background revealable active"> <em>Get the Know Now!</em>  is an interactive website that displays major global events exactly where they're taking place. Whether the event falls under the catergory of pop cultutre, politics, or a natural disaster,
           <em>GTKN!</em> will be here to report it!</p>
           </div>
+          
           
           <div id="plot-container" class="revealable active">
             {{ plot|safe }}  <!-- Embeded Plotly here -->
         </div>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script src="{{ url_for('static', filename='transition.js') }}"></script>
+
+        <div class="legend">
+          <div class="legend-item">
+              <div class="legend-color" style="background-color: green;"></div>
+              <div class="legend-text">Natural Disaster</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: red;"></div>
+            <div class="legend-text">War/ Violent Conflict</div>
+        </div>
+          <div class="legend-item">
+              <div class="legend-color" style="background-color: blue;"></div>
+              <div class="legend-text">Political</div>
+          </div>
+          <div class="legend-item">
+              <div class="legend-color" style="background-color: pink;"></div>
+              <div class="legend-text">Pop Culture</div>
+          </div>
+          <div class="legend-item">
+              <div class="legend-color" style="background-color: yellow;"></div>
+              <div class="legend-text">Other</div>
+          </div>
+
+          
+              
+      </div>
 
       </main>
   </body>

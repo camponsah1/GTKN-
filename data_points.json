@@ -1,7 +1,15 @@
-[
-{"evn": "78 dead after boat capsized in Lake Kivu", 
-"typeOfEvent": "War",
+[{"evn": "78 dead after boat capsized in Lake Kivu", 
+"typeOfEvent": "War", 
 "des": "An overcrowded boat unfortunately capsized in Lake Kivu as it was about to dock near Goma, DRC. Many passengers are considered missing. ",
-"lat": -1.743619, "lon": 29.189829,
-"resource": "https://www.theguardian.com/global-development/2024/oct/04/many-dead-hundreds-missing-ferry-disaster-lake-kivu-kituku-goma-dr-congo"}
-]
+ "lat": -1.743619, "lon": 29.189829, 
+ "resource": "https://www.theguardian.com/global-development/2024/oct/04/many-dead-hundreds-missing-ferry-disaster-lake-kivu-kituku-goma-dr-congo"}, 
+ {"evn": "Hurricane Helene",
+  "typeOfEvent": "naturalDisaster",
+   "des": "At least 230 people died across Florida, Georgia, South Carolina, North Carolina, Tennessee and Virginia as Hurricane Helene flooded towns, destroyed roads and bridges and swept away homes.\n\n", 
+   "lat": 35.6179, "lon": -82.322, 
+   "resource": "https://theconversation.com/how-hurricane-helene-became-a-deadly-disaster-across-six-states-240522"}, 
+   {"evn": "The craze over Moo Deng", 
+   "typeOfEvent": "popCulture", 
+   "des": "Moo Deng the pygmy hippo, who resides in Thailand's Khao Kheow Open Zoo, is causing a frenzy on social media with her hilarious yet feisty reactions to the zoo's keepers playing with her.",
+    "lat": 13.214, "lon": 101.06, 
+    "resource": "https://en.wikipedia.org/wiki/Moo_Deng"}]
